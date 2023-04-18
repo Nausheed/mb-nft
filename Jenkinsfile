@@ -1,19 +1,8 @@
-properties([
-  parameters([
-    choice(
-      name: 'SNode',
-      choices: "100.108.42.104\n100.108.42.236",
-      description: 'Select a Stage Node to Deploy'
-      )
-    choice(
-      name: 'ACTION', choices: ['deploy', 'rollback'], description: 'Choose action: deploy or rollback')
-  )
-])
-
 pipeline{
   agent any
    parameters {
                choice(name: 'ACTION', choices: ['deploy', 'rollback'], description: 'Choose action: deploy or rollback')
+               choice(name: 'ACTION', choices: ['100', '101'], description: 'Choose action: 100 or 101')
     }
   stages{
     stage("clone"){
