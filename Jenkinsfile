@@ -7,7 +7,7 @@ properties([
       )
     choice(
       name: 'ACTION', choices: ['deploy', 'rollback'], description: 'Choose action: deploy or rollback')
-  ])
+  )
 ])
 
 pipeline{
