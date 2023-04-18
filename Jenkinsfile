@@ -1,18 +1,22 @@
+properties([
+  parameters([
+    choice(
+      name: 'SNode',
+      choices: "100.108.42.104\n100.108.42.236",
+      description: 'Select a Stage Node to Deploy'
+    ),
+    choice(
+      name: 'action',
+      choices: "Deploy\nRollback",
+      description: 'Select deployment action'
+    )
+  ])
+])
+
+
 
 pipeline{
   agent any
-   parameters {
-        choice(
-            choices: 'ServerA\nServerB', 
-            description: 'Select a server for deployment', 
-            name: 'server'
-        )
-        choice(
-            choices: 'Deploy\nRollback', 
-            description: 'Select deployment action', 
-            name: 'action'
-        )
-    }
   stages{
     stage("Deploy"){
       when{
