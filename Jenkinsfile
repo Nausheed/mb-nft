@@ -5,6 +5,8 @@ properties([
       choices: "100.108.42.104\n100.108.42.236",
       description: 'Select a Stage Node to Deploy'
       )
+    choice(
+      name: 'ACTION', choices: ['deploy', 'rollback'], description: 'Choose action: deploy or rollback')
   ])
 ])
 
