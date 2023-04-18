@@ -14,9 +14,25 @@ pipeline{
         )
     }
   stages{
-    stage("clone"){
+    stage("Deploy"){
+      when{
+        expression {
+          return params.action == 'Deploy'
+        }
+      }
       steps{
-      echo "cloning"
+        echo "${params.action}"
+      }
+    }
+    
+    stage("Rollback"){
+      when{
+        expression {
+          return params.action == 'Rollback'
+        }
+      }
+      steps{
+        echo "${params.action}"
       }
     }
   }
